@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Affordable websites for students, creators and small businesses. Mobile-friendly websites with WhatsApp integration and fast delivery.">
+  <meta name="keywords" content="website development, student portfolio, business website, affordable website, WhatsApp website">
+  <meta name="author" content="Nikhil Web Studio">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Nikhil Web Studio | Websites That Get You Online">
+  <meta property="og:description" content="Professional, mobile-friendly websites for students, creators and small businesses.">
+  <meta property="og:type" content="website">
+  <title>Nikhil Web Studio | Affordable Websites</title>
+  <link rel="canonical" href="https://YOUR-DOMAIN.example/">
+
+  <style>
+    :root {
+      --bg: #f7f8fc;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #667085;
+      --primary: #5b5cf0;
+      --primary-dark: #4445d8;
+      --border: #e7e9f0;
+      --success: #18a66a;
+      --shadow: 0 18px 50px rgba(16, 24, 40, 0.08);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, calc(100% - 32px)); margin: auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(231,233,240,.85);
+    }
+    nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo { font-weight: 900; letter-spacing: -.04em; font-size: 1.15rem; }
+    .logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: .95rem; }
+    .nav-links a:hover { color: var(--primary); }
+    .menu-btn { display:none; border:0; background:transparent; font-size:1.6rem; cursor:pointer; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 19px;
+      border-radius: 13px;
+      border: 1px solid var(--border);
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s ease;
+      background: var(--surface);
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--primary); color: white; border-color: var(--primary); }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-whatsapp { background: var(--success); color: white; border-color: var(--success); }
+
+    .hero { padding: 92px 0 76px; }
+    .hero-grid { display:grid; grid-template-columns: 1.15fr .85fr; gap: 54px; align-items:center; }
+    .badge {
+      display:inline-flex; padding:7px 11px; border:1px solid #dcdcff;
+      border-radius:999px; background:#f0f0ff; color:#4748d8; font-weight:800; font-size:.82rem;
+    }
+    h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); line-height:.98; letter-spacing:-.065em; margin:18px 0 22px; }
+    h1 span { color: var(--primary); }
+    .hero p { color: var(--muted); font-size:1.1rem; max-width:650px; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+    .hero-card {
+      background: linear-gradient(145deg, #14152a, #3032a5);
+      color:white; border-radius:32px; padding:30px; box-shadow:var(--shadow);
+      min-height: 390px; display:flex; flex-direction:column; justify-content:space-between;
+    }
+    .mini-label { color:#cfd0ff; font-size:.82rem; font-weight:800; }
+    .mock-window { background:white; color:var(--text); border-radius:18px; padding:18px; margin-top:18px; }
+    .mock-line { height:10px; border-radius:99px; background:#eceef5; margin:10px 0; }
+    .mock-line.short { width:55%; }
+    .mock-btn { display:inline-block; background:var(--primary); color:white; padding:9px 12px; border-radius:9px; font-size:.8rem; font-weight:800; }
+
+    section { padding: 78px 0; }
+    .section-head { max-width:700px; margin-bottom:38px; }
+    .eyebrow { color:var(--primary); font-weight:900; text-transform:uppercase; letter-spacing:.1em; font-size:.76rem; }
+    h2 { font-size:clamp(2rem,4vw,3rem); line-height:1.05; letter-spacing:-.04em; margin:10px 0 12px; }
+    .section-head p { color:var(--muted); }
+
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:26px; box-shadow:0 8px 30px rgba(16,24,40,.04); }
+    .icon { width:44px; height:44px; display:grid; place-items:center; border-radius:13px; background:#f0f0ff; margin-bottom:18px; font-size:1.25rem; }
+    .card h3 { margin:0 0 8px; }
+    .card p { color:var(--muted); margin:0; }
+
+    .pricing { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
+    .price-card { position:relative; }
+    .price-card.featured { border:2px solid var(--primary); transform:translateY(-8px); }
+    .popular { position:absolute; top:16px; right:16px; font-size:.72rem; background:var(--primary); color:white; padding:5px 9px; border-radius:999px; font-weight:900; }
+    .price { font-size:2.4rem; font-weight:950; letter-spacing:-.05em; margin:16px 0; }
+    .price small { font-size:.9rem; color:var(--muted); font-weight:600; }
+    .features { list-style:none; padding:0; margin:22px 0; }
+    .features li { margin:10px 0; color:#475467; }
+    .features li::before { content:"✓"; color:var(--success); font-weight:900; margin-right:9px; }
+
+    .portfolio { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .project { overflow:hidden; padding:0; }
+    .project-preview { height:190px; background:linear-gradient(135deg,#17182c,#6366f1); padding:24px; color:white; display:flex; flex-direction:column; justify-content:flex-end; }
+    .project-preview.two { background:linear-gradient(135deg,#0e2a23,#20a36b); }
+    .project-preview.three { background:linear-gradient(135deg,#2b1725,#db5d9b); }
+    .project-body { padding:22px; }
+
+    .about-grid, .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:start; }
+    .checklist { display:grid; gap:12px; }
+    .check { background:var(--surface); border:1px solid var(--border); padding:14px 16px; border-radius:14px; }
+    form { display:grid; gap:14px; }
+    input, textarea, select {
+      width:100%; padding:14px 15px; border:1px solid var(--border); border-radius:12px;
+      background:white; font:inherit; outline:none;
+    }
+    input:focus, textarea:focus, select:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(91,92,240,.12); }
+    textarea { min-height:140px; resize:vertical; }
+
+    .cta { background:#15162b; color:white; border-radius:30px; padding:42px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
+    .cta p { color:#c6c8d8; margin:6px 0 0; }
+
+    footer { padding:34px 0; border-top:1px solid var(--border); color:var(--muted); }
+    .footer-row { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+
+    .float-wa {
+      position:fixed; right:18px; bottom:18px; z-index:80; width:58px; height:58px; border-radius:50%;
+      display:grid; place-items:center; background:#18a66a; color:white; font-size:1.5rem;
+      box-shadow:0 12px 30px rgba(24,166,106,.35);
+    }
+
+    @media (max-width: 820px) {
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns:1fr; }
+      .cards, .pricing, .portfolio { grid-template-columns:1fr; }
+      .price-card.featured { transform:none; }
+      .nav-links {
+        display:none; position:absolute; left:16px; right:16px; top:68px; background:white;
+        border:1px solid var(--border); border-radius:16px; padding:16px; flex-direction:column; align-items:stretch;
+      }
+      .nav-links.open { display:flex; }
+      .menu-btn { display:block; }
+      .cta { flex-direction:column; align-items:flex-start; }
+      h1 { font-size:clamp(2.6rem,14vw,4.2rem); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"Nikhil Web Studio",
+    "description":"Affordable mobile-friendly websites for students, creators and small businesses.",
+    "url":"https://YOUR-DOMAIN.example/",
+    "areaServed":"India",
+    "priceRange":"₹₹"
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#home">Nikhil<span>Web</span> Studio</a>
+      <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#pricing" onclick="closeMenu()">Pricing</a>
+        <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">⚡ Fast • Affordable • Mobile-first</span>
+        <h1>Websites that help your <span>business grow.</span></h1>
+        <p>Professional websites for students, creators and small businesses — designed for mobile, built for speed and connected to WhatsApp.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#pricing">View Packages</a>
+          <a class="btn btn-whatsapp" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Nikhil%2C%20I%20want%20a%20website." target="_blank" rel="noopener">💬 WhatsApp Me</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div>
+          <div class="mini-label">YOUR ONLINE PRESENCE</div>
+          <h3 style="font-size:2rem;margin:8px 0;">Launch in days, not weeks.</h3>
+          <p style="color:#d8d9e8;">Simple websites with clear pricing and direct customer contact.</p>
+        </div>
+        <div class="mock-window">
+          <strong>Business Website</strong>
+          <div class="mock-line"></div>
+          <div class="mock-line short"></div>
+          <div style="margin-top:16px;"><span class="mock-btn">Contact on WhatsApp</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div class="section-head">
+        <div class="eyebrow">About</div>
+        <h2>Technology without the agency price tag.</h2>
+        <p>I create clean, responsive websites that are easy for customers to understand and easy for you to manage.</p>
+      </div>
+      <div class="checklist">
+        <div class="check">📱 <strong>Mobile-first</strong> — looks good on phones, tablets and laptops.</div>
+        <div class="check">⚡ <strong>Fast loading</strong> — lightweight code and simple layouts.</div>
+        <div class="check">💬 <strong>WhatsApp ready</strong> — customers can contact you directly.</div>
+        <div class="check">🔎 <strong>SEO basics</strong> — title, description, structured data and indexing setup.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Services</div>
+        <h2>Everything you need to get online.</h2>
+        <p>Start small and upgrade when your business grows.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="icon">🎓</div><h3>Student Portfolio</h3><p>Resume, skills, projects, certificates, social links and contact section.</p></article>
+        <article class="card"><div class="icon">🏪</div><h3>Business Website</h3><p>Services, gallery, location, WhatsApp button, contact form and testimonials.</p></article>
+        <article class="card"><div class="icon">🛠️</div><h3>Website Maintenance</h3><p>Content updates, new sections, fixes and basic performance improvements.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Pricing</div>
+        <h2>Simple packages.</h2>
+        <p>Use these as starting prices and customize each quote based on the project.</p>
+      </div>
+      <div class="pricing">
+        <article class="card price-card">
+          <h3>Starter</h3><div class="price">₹999 <small>/ project</small></div>
+          <p>For students and personal portfolios.</p>
+          <ul class="features"><li>1-page website</li><li>Mobile responsive</li><li>Resume/projects section</li><li>WhatsApp button</li><li>Basic SEO</li></ul>
+          <a class="btn btn-primary" href="#contact">Choose Starter</a>
+        </article>
+        <article class="card price-card featured">
+          <span class="popular">POPULAR</span>
+          <h3>Business</h3><div class="price">₹2,999 <small>/ project</small></div>
+          <p>For small businesses and local services.</p>
+          <ul class="features"><li>Up to 5 sections/pages</li><li>Gallery/services</li><li>WhatsApp integration</li><li>Contact form</li><li>Basic SEO + indexing setup</li></ul>
+          <a class="btn btn-primary" href="#contact">Choose Business</a>
+        </article>
+        <article class="card price-card">
+          <h3>Premium</h3><div class="price">₹4,999 <small>/ project</small></div>
+          <p>For businesses wanting a stronger online presence.</p>
+          <ul class="features"><li>Multi-page website</li><li>Custom sections</li><li>Animations/interactions</li><li>WhatsApp + contact form</li><li>SEO basics + launch support</li></ul>
+          <a class="btn btn-primary" href="#contact">Choose Premium</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Portfolio</div>
+        <h2>Demo projects.</h2>
+        <p>Replace these demo cards with your real client work as you complete projects.</p>
+      </div>
+      <div class="portfolio">
+        <article class="card project"><div class="project-preview"><span>Portfolio</span><h3>Student Portfolio</h3></div><div class="project-body"><strong>Personal brand website</strong><p>Projects, skills, resume and contact.</p></div></article>
+        <article class="card project"><div class="project-preview two"><span>Local Business</span><h3>Café Website</h3></div><div class="project-body"><strong>Business landing page</strong><p>Menu, location, reviews and WhatsApp.</p></div></article>
+        <article class="card project"><div class="project-preview three"><span>Creator</span><h3>Creator Landing Page</h3></div><div class="project-body"><strong>Personal creator page</strong><p>Bio, links, services and social profiles.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact-grid">
+      <div class="section-head">
+        <div class="eyebrow">Contact</div>
+        <h2>Let's build your website.</h2>
+        <p>Fill in the form. It will open WhatsApp with your project details so you can send the enquiry directly.</p>
+        <div style="margin-top:22px;">
+          <a class="btn btn-whatsapp" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Nikhil%2C%20I%20want%20to%20discuss%20a%20website." target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+        </div>
+      </div>
+
+      <form id="contactForm">
+        <input id="name" required placeholder="Your name">
+        <input id="phone" required placeholder="Phone / WhatsApp number">
+        <select id="package" required>
+          <option value="">Select package</option>
+          <option>Starter - ₹999</option>
+          <option>Business - ₹2,999</option>
+          <option>Premium - ₹4,999</option>
+          <option>Custom project</option>
+        </select>
+        <textarea id="message" placeholder="Tell me about your website"></textarea>
+        <button class="btn btn-primary" type="submit">Send Enquiry on WhatsApp →</button>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta">
+        <div><h2 style="margin:0;">Ready to get online?</h2><p>Tell me what you need and I'll help you choose a package.</p></div>
+        <a class="btn btn-whatsapp" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Nikhil%2C%20I%20need%20a%20website." target="_blank" rel="noopener">Start on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© <span id="year"></span> Nikhil Web Studio</div>
+    <div>Built for students & small businesses.</div>
+  </div>
+</footer>
+
+<a class="float-wa" aria-label="WhatsApp" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Nikhil%2C%20I%20need%20a%20website." target="_blank" rel="noopener">💬</a>
+
+<script>
+  const nav = document.getElementById("navLinks");
+  function toggleMenu(){ nav.classList.toggle("open"); }
+  function closeMenu(){ nav.classList.remove("open"); }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const pack = document.getElementById("package").value;
+    const message = document.getElementById("message").value.trim();
+    const text =
+      `Hi Nikhil, I want a website.%0A%0A` +
+      `Name: ${encodeURIComponent(name)}%0A` +
+      `Phone: ${encodeURIComponent(phone)}%0A` +
+      `Package: ${encodeURIComponent(pack)}%0A` +
+      `Project details: ${encodeURIComponent(message || "Not provided")}`;
+    window.open(`https://wa.me/91XXXXXXXXXX?text=${text}`, "_blank");
+  });
+</script>
+</body>
+</html>
